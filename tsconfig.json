@@ -12,8 +12,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src*"],
-      "@data/*": ["src/data/*"]
+      "@/*": ["src*"]
+      // "@data/*": ["src/data/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
