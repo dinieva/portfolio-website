@@ -18,7 +18,7 @@ import NavComponent from "./components/NavComponent.vue";
     <header class="flex flex-row justify-start w-[100%]">
       <div class="flex-1 w-64"><LogoComponent /></div>
 
-      <div class="flex-1 xs:hidden md:block"><LinksComponent /></div>
+      <div class="flex-1 hidden md:block"><LinksComponent /></div>
 
       <!--  <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     <div class="wrapper">
