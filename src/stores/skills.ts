@@ -8,23 +8,23 @@ export const useSkillsIconsStore = defineStore("skills", () => {
   const skillsIcons: SkillsIcon[] = [
     {
       title: "HTML 5",
-      icon: "../assets/skills/html-5.svg",
+      icon: "/portfolio-website/assets/skills/html-5.svg",
     },
     {
       title: "CSS 3",
-      icon: "../assets/skills/css-3.svg",
+      icon: "/portfolio-website/assets/skills/css-3.svg",
     },
     {
       title: "SCSS",
-      icon: "../assets/skills/scss.svg",
+      icon: "/portfolio-website/assets/skills/scss.svg",
     },
     {
       title: "JS",
-      icon: "../assets/skills/js.svg",
+      icon: "/portfolio-website/assets/skills/js.svg",
     },
     {
       title: "TypeScript",
-      icon: "../assets/skills/typescript.svg",
+      icon: "/portfolio-website/assets/skills/typescript.svg",
     },
     /*  {
       title: 'Nuxt.js',
@@ -32,31 +32,31 @@ export const useSkillsIconsStore = defineStore("skills", () => {
     }, */
     {
       title: "Vue.js",
-      icon: "../assets/skills/vue-framework.svg",
+      icon: "/portfolio-website/assets/skills/vue-framework.svg",
     },
     {
       title: "Vite",
-      icon: "../assets/skills/vite.svg",
+      icon: "/portfolio-website/assets/skills/vite.svg",
     },
     {
       title: "Pinia",
-      icon: "../assets/skills/pinia.svg",
+      icon: "/portfolio-website/assets/skills/pinia.svg",
     },
     {
       title: "Git",
-      icon: "../assets/skills/git.svg",
+      icon: "/portfolio-website/assets/skills/git.svg",
     },
     {
       title: "GitHub",
-      icon: "../assets/skills/github.svg",
+      icon: "/portfolio-website/assets/skills/github.svg",
     },
     {
       title: "NodeJs",
-      icon: "../assets/skills/node-js.svg",
+      icon: "/portfolio-website/assets/skills/node-js.svg",
     },
     {
       title: "NPM",
-      icon: "../assets/skills/npm.svg",
+      icon: "/portfolio-website/assets/skills/npm.svg",
     },
   ];
 
