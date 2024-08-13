@@ -41,33 +41,25 @@ const toggleModal = (param: boolean) => (openModal.value = param);
             class="grid lg:grid-cols-3 lg:gap-3 place-items-center grid-cols-1 gap-5"
           >
             <img
-              src="/public/assets/certificates/glo.png"
+              src="/assets/certificates/glo.png"
               alt="certificates-glo"
               class="max-w-44 max-h-48 cursor-pointer justify-self-center rotate-90 xs:rotate-0"
-              @click="
-                showCertificates('/public/assets/certificates/glo.png', true)
-              "
+              @click="showCertificates('/assets/certificates/glo.png', true)"
             />
             <img
-              src="/public/assets/certificates/itlogia.jpg"
+              src="/assets/certificates/itlogia.jpg"
               alt="itlogia"
               class="max-w-44 max-h-48 cursor-pointer self-auto justify-self-center"
               @click="
-                showCertificates(
-                  '/public/assets/certificates/itlogia.jpg',
-                  true
-                )
+                showCertificates('/assets/certificates/itlogia.jpg', true)
               "
             />
             <img
-              src="/public/assets/certificates/sololearn.jpg"
+              src="/assets/certificates/sololearn.jpg"
               alt="sololearn"
               class="max-w-44 max-h-48 cursor-pointe justify-self-centerr"
               @click="
-                showCertificates(
-                  '/public/assets/certificates/sololearn.jpg',
-                  true
-                )
+                showCertificates('/assets/certificates/sololearn.jpg', true)
               "
             />
           </div>
