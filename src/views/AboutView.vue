@@ -44,14 +44,22 @@ const toggleModal = (param: boolean) => (openModal.value = param);
               src="/assets/certificates/glo.png"
               alt="certificates-glo"
               class="max-w-44 max-h-48 cursor-pointer justify-self-center rotate-90 xs:rotate-0"
-              @click="showCertificates('/assets/certificates/glo.png', true)"
+              @click="
+                showCertificates(
+                  '/portfolio-website/assets/certificates/glo.png',
+                  true
+                )
+              "
             />
             <img
               src="/assets/certificates/itlogia.jpg"
               alt="itlogia"
               class="max-w-44 max-h-48 cursor-pointer self-auto justify-self-center"
               @click="
-                showCertificates('/assets/certificates/itlogia.jpg', true)
+                showCertificates(
+                  '/portfolio-website/assets/certificates/itlogia.jpg',
+                  true
+                )
               "
             />
             <img
@@ -59,7 +67,10 @@ const toggleModal = (param: boolean) => (openModal.value = param);
               alt="sololearn"
               class="max-w-44 max-h-48 cursor-pointe justify-self-centerr"
               @click="
-                showCertificates('/assets/certificates/sololearn.jpg', true)
+                showCertificates(
+                  '/portfolio-website/assets/certificates/sololearn.jpg',
+                  true
+                )
               "
             />
           </div>
