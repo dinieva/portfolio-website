@@ -25,25 +25,45 @@ const toggleModal = (param: boolean) => (openModal.value = param);
     class="flex flex-col justify-center items-center gap-10 my-8 w-screen"
     v-if="!openModal"
   >
-    <h1 class="text-3xl font-bold text-center border-b pb-4 mt-10">Обо мне</h1>
-    <div class="flex flex-col justify-center gap-5">
+    <h1
+      class="text-3xl font-bold text-center border-b pb-4 mt-10 animate-show duration-700"
+    >
+      Обо мне
+    </h1>
+    <div class="flex flex-col justify-center gap-5 items-center w-2/3 py-9">
+      <p class="text-left text-xl leading-loose">
+        Мне нравится создавать привлекательные внешне и удобные для
+        пользователей интерфейсы веб-сайтов и приложений. Я стремлюсь к
+        написанию чистого кода с понятной и удобной структурой сайта .
+      </p>
+    </div>
+
+    <div
+      class="flex flex-col justify-center gap-5 items-center w-2/3 py-9 animate-show"
+    >
+      <h3 class="text-3xl font-bold mt-2 text-center">
+        Мой путь в веб-разработке
+      </h3>
+      <p class="text-left text-xl leading-loose">
+        C фронтенд разработкой я познакомилась в 2021 году. С тех пор приходится
+        много учиться, следить за трендами и уметь перестраиваться. Когда я
+        узнаю что-то новое, осваиваю инструменты, технологии и применяю их в
+        разработке,я испытываю огромную радость. Мой путь обучения лежит через
+        самообразование, онлайн-курсы, онлайн-интенсивы.
+      </p>
+    </div>
+    <div class="flex flex-col justify-center gap-5 animate-show delay-75">
       <div class="flex1 grid gap-5 grid-cols-1 lg:grid-cols-2">
         <div
           class="flex flex-col gap-5 p-10 border-transparent w-[100%] lg:col-span-2"
         >
-          <h3 class="text-3xl font-bold mt-2 text-center">
-            Мой путь в веб-разработке
-          </h3>
-          <p class="text-center">
-            Самообучение, курсы, интенсивы и регулярное пополнение знаний
-          </p>
           <div
-            class="grid lg:grid-cols-3 lg:gap-3 place-items-center grid-cols-1 gap-5"
+            class="grid lg:grid-cols-3 lg:gap-3 place-items-center grid-cols-1 gap-5 animate-show delay-300"
           >
             <img
               src="/assets/certificates/glo.png"
               alt="certificates-glo"
-              class="max-w-44 max-h-48 cursor-pointer justify-self-center rotate-90 xs:rotate-0"
+              class="max-w-44 max-h-48 cursor-pointer justify-self-center rotate-90 xs:rotate-0 transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
               @click="
                 showCertificates(
                   '/portfolio-website/assets/certificates/glo.png',
@@ -54,7 +74,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
             <img
               src="/assets/certificates/itlogia.jpg"
               alt="itlogia"
-              class="max-w-44 max-h-48 cursor-pointer self-auto justify-self-center"
+              class="max-w-44 max-h-48 cursor-pointer self-auto justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
               @click="
                 showCertificates(
                   '/portfolio-website/assets/certificates/itlogia.jpg',
@@ -65,7 +85,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
             <img
               src="/assets/certificates/sololearn.jpg"
               alt="sololearn"
-              class="max-w-44 max-h-48 cursor-pointe justify-self-centerr"
+              class="max-w-44 max-h-48 cursor-pointe justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
               @click="
                 showCertificates(
                   '/portfolio-website/assets/certificates/sololearn.jpg',
@@ -76,7 +96,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
           </div>
         </div>
         <div
-          class="flex flex-col justify-center gap-5 p-10 lg:border-r-4 lg:border-blue-400"
+          class="flex flex-col justify-center gap-5 p-10 lg:border-r-4 lg:border-blue-400 py-6"
         >
           <h3 class="text-3xl font-bold text-center">Моя деятельность</h3>
           <p class="text-center">Практикую веб-разработку на пет проектах.</p>
@@ -86,7 +106,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
             <router-link to="/cases">Портфолио</router-link>
           </button>
         </div>
-        <div class="flex flex-col gap-5 p-10">
+        <div class="flex flex-col gap-5 p-10 py-6">
           <h3 class="text-3xl font-bold text-center">Образование</h3>
           <div class="text-center">
             <p>2015г</p>
@@ -96,10 +116,10 @@ const toggleModal = (param: boolean) => (openModal.value = param);
         </div>
       </div>
     </div>
-    <div class="flex flex-col justify-center gap-5 items-center w-screen">
+    <div class="flex flex-col justify-center gap-5 items-center w-screen py-9">
       <h1 class="text-3xl font-bold text-center lg:my-10">Навыки</h1>
       <div
-        class="flex space-x-16 overflow-hidden group items-wrap max-w-5xl scroll-pl-6 snap-x relative w-[100%] lg:p-8 p-4"
+        class="flex space-x-16 overflow-hidden group items-wrap max-w-5xl scroll-pl-6 snap-x relative w-[100%] lg:p-8 p-4 square"
       >
         <div
           class="flex flex-row lg:gap-5 gap-2 animate-ticker-scroll space-x-16 group-hover:paused"

@@ -6,7 +6,7 @@ export default {
   theme: {
     screens: {
       sm: "480px",
-      md: "769px",
+      md: "769px" /*  @media (min-width: 768px) { ... } */,
       lg: "976px",
       xl: "1440px",
     },
@@ -48,7 +48,7 @@ export default {
     extend: {
       screens: {
         xs: "320px",
-        smPhone: { max: "430px" },
+        smPhone: { max: "479px" },
         // xsMax: { max: "767px" },
         // => @media (min-width: 992px) { ... }
       },
@@ -56,6 +56,7 @@ export default {
         full: "9999px",
       },
       animation: {
+        show: "show ease 7s",
         "animate-pulse": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "pulse-bg-once": "pulse-bg-once 2s ease-in forwards",
         wiggle: "wiggle 1.5s ease-in-out ",
@@ -70,6 +71,10 @@ export default {
           '0%, 100%': { transform: 'rotate(180deg)' },
           '50%': { transform: 'rotate(3deg)' }
         }, */
+        show: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
         wiggle: {
           from: { transform: "rotate(45deg)", scale: 0 },
           to: { transform: "rotate(0)", scale: 1 },
