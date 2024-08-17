@@ -14,9 +14,10 @@ const portfolioStore = usePortfolioStore();
       class="min-h-max flex items-stretch justify-between flex-wrap gap-5 p-10"
     >
       <PortfolioItemComponent
-        v-for="item in portfolioStore.portfolioItems"
+        class="animate-show delay-300"
+        v-for="(item, i) in portfolioStore.portfolioItems"
         :portfolioItem="item"
-        :key="item"
+        :key="i"
       />
     </div>
   </div>

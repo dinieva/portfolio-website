@@ -14,16 +14,10 @@ import NavComponent from "./components/NavComponent.vue";
   <div
     class="flex flex-col justify-between min-h-screen max-w-screen-xl items-center p-4 overflow-hidden"
   >
-    <!-- border-2 border-fuchsia-400 -->
     <header class="flex flex-row justify-start w-[100%]">
       <div class="flex-1 w-64"><LogoComponent /></div>
 
       <div class="flex-1 hidden md:block"><LinksComponent /></div>
-
-      <!--  <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div> -->
     </header>
 
     <nav
@@ -44,7 +38,7 @@ import NavComponent from "./components/NavComponent.vue";
 
     <router-view v-slot="{ Component, route }">
       <transition name="fade" mode="out-in">
-        <div :key="route.name">
+        <div :key="route.name" class="w-[100%]">
           <component :is="Component"></component>
         </div>
       </transition>
@@ -84,30 +78,4 @@ nav a:first-of-type {
 .fade-leave-to {
   opacity: 0;
 }
-/* @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-} */
 </style>

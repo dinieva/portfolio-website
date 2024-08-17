@@ -83,7 +83,7 @@
             :class="{ show: notValidPhone }"
             id="phone-error"
             aria-live="polite"
-            >Пожалйста, проверьте номер телефона
+            >Пожалуйста, проверьте номер телефона
           </span>
         </div>
         <div class="flex-1 mt-2.5 smPhone:w-full smPhone:flex-wrap">

@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="open"
-    class="grid grid-cols-1 place-items-center content-center bg-gray-800 bg-opacity-60 w-screen h-screen"
+    class="grid grid-cols-1 place-items-center content-center bg-opacity-60 h-screen"
     @click="$emit('closeModal', false)"
   >
     <div

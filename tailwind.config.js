@@ -46,6 +46,9 @@ export default {
       none: "none",
     },
     extend: {
+      transitionDuration: {
+        math: `Math.random() * 3s`,
+      },
       screens: {
         xs: "320px",
         smPhone: { max: "479px" },
@@ -56,21 +59,32 @@ export default {
         full: "9999px",
       },
       animation: {
+        animate_grow: "animate_grow 2s ease forwards;",
         show: "show ease 7s",
         "animate-pulse": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "pulse-bg-once": "pulse-bg-once 2s ease-in forwards",
         wiggle: "wiggle 1.5s ease-in-out ",
-        typewriter: "typewriter 3s steps(29) forwards ",
+        typewriter: "typewriter 5s steps(29) forwards ",
         caret:
           "typewriter 2s steps(29) forwards, blink 1s steps(29) infinite 2s",
         backgroundColor: ["active"],
+        up: "up 1000ms cubic-bezier(0.4, 0, 0.6, 1) forwards",
+        down: "down 1000ms linear forwards",
         "ticker-scroll": "ticker-scroll 25s linear infinite",
       },
       keyframes: {
-        /*  wiggle: {
-          '0%, 100%': { transform: 'rotate(180deg)' },
-          '50%': { transform: 'rotate(3deg)' }
-        }, */
+        animate_grow: {
+          "0%": {
+            transform: "scale3d(1, 1, 1)",
+          },
+          "50%": {
+            transform: "scale3d(1.05, 1.05, 1.05)",
+          },
+          "100%": {
+            transform: "scale3d(1, 1, 1)",
+          },
+        },
+
         show: {
           from: { opacity: 0 },
           to: { opacity: 1 },
@@ -88,27 +102,22 @@ export default {
           },
         },
 
+        up: {
+          from: { transform: "translateY(100%)" },
+          // to: { transform: 'translateX(calc(-100% - 20px))' }
+          to: { transform: "translateY(0%)" },
+        },
+
+        down: {
+          from: { transform: "translateY(-100%)" },
+          // to: { transform: 'translateX(calc(-100% - 20px))' }
+          to: { transform: "translateY(0%)" },
+        },
+
         "ticker-scroll": {
           from: { transform: "translateX(0%)" },
           // to: { transform: 'translateX(calc(-100% - 20px))' }
           to: { transform: "translateX(-100%)" },
-        },
-        blink: {
-          "0%": {
-            opacity: "0",
-          },
-          "0.1%": {
-            opacity: "1",
-          },
-          "50%": {
-            opacity: "1",
-          },
-          "50.1%": {
-            opacity: "0",
-          },
-          "100%": {
-            opacity: "0",
-          },
         },
       },
     },
