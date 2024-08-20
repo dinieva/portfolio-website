@@ -95,6 +95,7 @@
             @blur="toggleErrorSpan($event), validateTheme(theme)"
             placeholder="Тема"
             class="p-6 border rounded-xl border-fuchsia-500 outline-0 w-full bg-[#312e81] text-white-200 shadow shadow-fuchsia-500 smPhone:w-full smPhone:flex-wrap"
+            :class="{ error: notValidTheme }"
             required
             aria-describedby="theme-error"
           />
@@ -120,6 +121,7 @@
         @blur="toggleErrorSpan($event), validateMessage(message)"
         @input="validateMessage(message)"
         aria-describedby="message-error"
+        :class="{ error: notValidMessage }"
         required
       ></textarea>
       <span

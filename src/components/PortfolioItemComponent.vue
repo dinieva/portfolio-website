@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card mt-5 bg-special1 max-w-72 m-auto text-center shadow-lg shadow-shadow p-4 rounded-md self-stretch flex flex-col justify-between items-center min-h-96 hover:scale-105 hover:-translate-y-3 transform-gpu transition duration-300 ease"
+    class="card mt-5 bg-special1 max-w-72 m-auto text-center shadow-lg shadow-shadow p-4 rounded-md self-stretch flex flex-col justify-between items-center min-h-96 hover:animate-animate_grow"
   >
     <div class="relative">
       <img

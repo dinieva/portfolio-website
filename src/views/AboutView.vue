@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { Ref } from "vue";
+import { vIntersectionObserver } from "@vueuse/components";
 import ModalCertificates from "../components/ModalCertificates.vue";
 import ContactComponent from "../components/ContactComponent.vue";
 import { useSkillsIconsStore } from "../stores/skills";
@@ -13,7 +14,50 @@ const showCertificates = (path: string, param: boolean) => {
   toggleModal(param);
 };
 const toggleModal = (param: boolean) => (openModal.value = param);
+
+const root = ref(null);
+const rootOne = ref(null);
+const rootCertificates = ref(null);
+const isVisible = ref(false);
+const rootForm = ref(null);
+
+function onIntersectionObserver([
+  { isIntersecting },
+]: IntersectionObserverEntry[]) {
+  isVisible.value = isIntersecting;
+
+  if (isVisible.value && rootOne) {
+    for (let i = 0; i < rootOne.value.childNodes.length; i++) {
+      rootOne.value.childNodes[i].classList.add("animate");
+    }
+  }
+  if (isVisible.value && root) {
+    for (let i = 0; i < root.value.childNodes.length; i++) {
+      root.value.childNodes[i].classList.add("animate");
+    }
+  }
+}
+function onIntersectionObserver2([
+  { isIntersecting },
+]: IntersectionObserverEntry[]) {
+  isVisible.value = isIntersecting;
+  if (isIntersecting) {
+    for (let i = 0; i < rootCertificates.value.childNodes.length; i++) {
+      rootCertificates.value.childNodes[i].classList.add("square");
+    }
+  }
+}
+function onIntersectionObserver3([
+  { isIntersecting },
+]: IntersectionObserverEntry[]) {
+  isVisible.value = isIntersecting;
+  if (isIntersecting) {
+    rootForm.value.classList.add("animate-form");
+  }
+}
 </script>
+
+
 <template>
   <ModalCertificates
     :modalContent="certificateUrl"
@@ -22,7 +66,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
   />
 
   <div
-    class="flex flex-col justify-center items-center gap-10 my-8"
+    class="flex flex-col justify-center items-center gap-10 my-8 xs:gap-0"
     v-if="!openModal"
   >
     <h1
@@ -30,8 +74,14 @@ const toggleModal = (param: boolean) => (openModal.value = param);
     >
       Обо мне
     </h1>
-    <div class="flex flex-col justify-center gap-5 items-center w-2/3 py-9">
-      <p class="text-left text-xl leading-loose">
+    <div
+      class="flex flex-col justify-center gap-5 items-center w-2/3 py-9"
+      ref="rootOne"
+      v-intersection-observer="[onIntersectionObserver, { rootOne }]"
+    >
+      <p
+        class="observe-right text-left text-xl leading-loose sm:text-justify smPhone:text-center"
+      >
         Мне нравится создавать привлекательные внешне и удобные для
         пользователей интерфейсы веб-сайтов и приложений. Я стремлюсь к
         написанию чистого кода с понятной и удобной структурой сайта .
@@ -39,12 +89,17 @@ const toggleModal = (param: boolean) => (openModal.value = param);
     </div>
 
     <div
-      class="flex flex-col justify-center gap-5 items-center w-2/3 py-9 animate-show"
+      class="flex flex-col justify-center gap-5 items-center w-2/3 py-9"
+      ref="root"
+      v-intersection-observer="[onIntersectionObserver, { root }]"
     >
-      <h3 class="text-3xl font-bold mt-2 text-center">
+      <h3 class="observe-left text-3xl font-bold mt-2 text-center">
         Мой путь в веб-разработке
       </h3>
-      <p class="text-left text-xl leading-loose">
+
+      <p
+        class="observe-left text-left text-xl leading-loose sm:text-justify smPhone:text-center"
+      >
         C фронтенд разработкой я познакомилась в 2021 году. С тех пор приходится
         много учиться, следить за трендами и уметь перестраиваться. Я испытываю
         огромную радость, когда я узнаю что-то новое, осваиваю инструменты,
@@ -52,18 +107,23 @@ const toggleModal = (param: boolean) => (openModal.value = param);
         самообразование, онлайн-курсы, онлайн-интенсивы.
       </p>
     </div>
-    <div class="flex flex-col justify-center gap-5 animate-show delay-75">
+    <div class="flex flex-col justify-center gap-5 transition">
       <div class="flex1 grid gap-5 grid-cols-1 lg:grid-cols-2">
         <div
           class="flex flex-col gap-5 p-10 border-transparent w-[100%] lg:col-span-2"
         >
           <div
-            class="grid lg:grid-cols-3 lg:gap-3 place-items-center grid-cols-1 gap-5 animate-show delay-300"
+            class="grid lg:grid-cols-3 lg:gap-5 place-items-center grid-cols-1 gap-5 xs:gap-10"
+            ref="rootCertificates"
+            v-intersection-observer="[
+              onIntersectionObserver2,
+              { rootCertificates },
+            ]"
           >
             <img
               src="/assets/certificates/glo.png"
               alt="certificates-glo"
-              class="max-w-44 max-h-48 cursor-pointer justify-self-center rotate-90 xs:rotate-0 transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
+              class="certificate-item max-w-44 max-h-48 cursor-pointer justify-self-center rotate-90 xs:rotate-0 transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
               @click="
                 showCertificates(
                   '/portfolio-website/assets/certificates/glo.png',
@@ -74,7 +134,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
             <img
               src="/assets/certificates/itlogia.jpg"
               alt="itlogia"
-              class="max-w-44 max-h-48 cursor-pointer self-auto justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
+              class="certificate-item max-w-44 max-h-48 cursor-pointer self-auto justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
               @click="
                 showCertificates(
                   '/portfolio-website/assets/certificates/itlogia.jpg',
@@ -85,7 +145,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
             <img
               src="/assets/certificates/sololearn.jpg"
               alt="sololearn"
-              class="max-w-44 max-h-48 cursor-pointe justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
+              class="certificate-item max-w-44 max-h-48 cursor-pointe justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
               @click="
                 showCertificates(
                   '/portfolio-website/assets/certificates/sololearn.jpg',
@@ -117,7 +177,7 @@ const toggleModal = (param: boolean) => (openModal.value = param);
       </div>
     </div>
     <div class="flex flex-col justify-center gap-5 items-center w-screen py-9">
-      <h1 class="text-3xl font-bold text-center lg:my-10">Навыки</h1>
+      <h1 class="text-3xl font-bold text-center lg:my-10 observe">Навыки</h1>
       <div
         class="flex space-x-16 overflow-hidden group items-wrap max-w-5xl scroll-pl-6 snap-x relative w-[100%] lg:p-8 p-4 square"
       >
@@ -135,13 +195,15 @@ const toggleModal = (param: boolean) => (openModal.value = param);
         </div>
       </div>
     </div>
-    <contact-component />
+    <div class="form-wrapper" ref="rootForm">
+      <contact-component v-intersection-observer="onIntersectionObserver3" />
+    </div>
   </div>
 </template>
 
 
 
-<style>
+<style scoped>
 .items-wrap:before,
 .items-wrap:after {
   content: "";
@@ -159,7 +221,6 @@ const toggleModal = (param: boolean) => (openModal.value = param);
     rgba(240, 171, 252, 0.5) 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  /* background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); */
 }
 .items-wrap:after {
   right: 0;
@@ -168,6 +229,47 @@ const toggleModal = (param: boolean) => (openModal.value = param);
     rgba(255, 255, 255, 0) 0%,
     rgba(240, 171, 252, 0.5) 100%
   );
-  /* background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); */
+}
+
+.observe-left,
+.observe-right {
+  width: 100%;
+  transition: transform 0.5s ease-out;
+}
+.observe-left {
+  transform-origin: left;
+  transform: translateX(-100vw);
+}
+.observe-right {
+  transform-origin: right;
+  transform: translateX(100vw);
+}
+
+.observe-right.animate,
+.observe-left.animate {
+  transform: translateX(0);
+}
+
+.form-wrapper {
+  transform: scale(0.25);
+  transition: transform 1s ease-out;
+}
+.form-wrapper.animate-form {
+  transform: scale(1);
+}
+
+.certificate-item.square {
+  animation-name: wipe-enter;
+  animation-duration: 1s;
+  animation-iteration-count: forwards;
+}
+
+@keyframes wipe-enter {
+  0% {
+    transform: scale(0, 0.025);
+  }
+  50% {
+    transform: scale(1, 0.025);
+  }
 }
 </style>
