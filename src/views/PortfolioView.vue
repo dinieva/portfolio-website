@@ -5,12 +5,12 @@ import { usePortfolioStore } from "../stores/portfolio";
 
 const portfolioStore = usePortfolioStore();
 
-const beforeEnter = (el) => {
+const beforeEnter = (el: any) => {
   el.style.opacity = 0;
   el.style.transform = "translateY(60px)";
 };
 
-const enter = (el) => {
+const enter = (el: any) => {
   gsap.to(el, {
     opacity: 1,
     y: 0,
