@@ -76,8 +76,8 @@ function onIntersectionObserver3([
     </h1>
     <div
       class="flex flex-col justify-center gap-5 items-center w-2/3 py-9"
-      ref="rootOne"
-      v-intersection-observer="[onIntersectionObserver, { rootOne }]"
+      ref="root"
+      v-intersection-observer="[onIntersectionObserver, { root }]"
     >
       <p
         class="observe-right text-left text-xl leading-loose sm:text-justify smPhone:text-center"
@@ -90,7 +90,7 @@ function onIntersectionObserver3([
 
     <div
       class="flex flex-col justify-center gap-5 items-center w-2/3 py-9"
-      ref="root"
+      ref="rootOne"
       v-intersection-observer="[onIntersectionObserver, { root }]"
     >
       <h3 class="observe-left text-3xl font-bold mt-2 text-center">
@@ -115,10 +115,7 @@ function onIntersectionObserver3([
           <div
             class="grid lg:grid-cols-3 lg:gap-5 place-items-center grid-cols-1 gap-5 xs:gap-10"
             ref="rootCertificates"
-            v-intersection-observer="[
-              onIntersectionObserver2,
-              { rootCertificates },
-            ]"
+            v-intersection-observer="[onIntersectionObserver2, { root }]"
           >
             <img
               src="/assets/certificates/glo.png"
@@ -197,8 +194,8 @@ function onIntersectionObserver3([
         >
           <div
             class="w-24 h-24 max-w-none p-5 bg-special flex flex-col items-center justify-center grow-0 shrink-0 basis-auto rounded-md hover:scale-105 hover:shadow-2xl"
-            v-for="icon in skillsIcons.skillsIcons"
-            :key="icon"
+            v-for="(icon, idx) in skillsIcons.skillsIcons"
+            :key="idx"
           >
             <img class="object-contain" :src="icon.icon" :alt="icon.title" />
             <p class="mt-2">{{ icon.title }}</p>
