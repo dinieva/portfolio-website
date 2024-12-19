@@ -153,6 +153,17 @@ function onIntersectionObserver3([
                 )
               "
             />
+            <img
+              src="/assets/certificates/fintech.webp"
+              alt="intech"
+              class="certificate-item max-w-44 max-h-48 cursor-pointe justify-self-center transition ease-in-out duration-700 delay-150 hover:-translate-y-1 hover:scale-110"
+              @click="
+                showCertificates(
+                  '/portfolio-website/assets/certificates/fintech.webp',
+                  true
+                )
+              "
+            />
           </div>
         </div>
         <div
