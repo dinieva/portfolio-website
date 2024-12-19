@@ -28,7 +28,7 @@ export const usePortfolioStore = defineStore('portfolio', () => {
             title: 'Learning Management System (LMS)',
             descr: 'Платформа для онлайн обучения со списком курсов,c возможностью студентам отправлять, а преподавателям оценивать домашниюю работу',
             technology: 'Angular, Typescript, Firebase Api',
-            link: 'lms-tech-14189.web.app',
+            link: 'https://lms-tech-14189.web.app/',
             imgPath: '/portfolio-website/assets/projects-img/lms.webp',
         },
         {
